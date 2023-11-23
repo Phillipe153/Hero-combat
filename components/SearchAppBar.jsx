@@ -7,6 +7,9 @@ import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 // import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import { useContext } from 'react';
+import HeroContext from '../context/HeroContext';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -51,6 +54,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+const {handleFilter} = useContext(HeroContext);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -69,6 +74,7 @@ export default function SearchAppBar() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
+              onChange={ handleFilter }
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
