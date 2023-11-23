@@ -16,7 +16,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  /* color: #646cff; */
   text-decoration: inherit;
 }
 a:hover {
@@ -79,4 +79,18 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  margin: 10px;
+}
+
+#hero_item:hover{
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 80%;
+  margin: 10px;
+}
+
+
+#hero_item  img{
+  width: 100%;
 }

@@ -9,7 +9,11 @@ function HeroProvider({ children }) {
     const [heroFilter, setHeroFilter] = useState({
         heroFilter: '',
       });
-      const [filtered, setFiltered] = useState(false);
+    const [filtered, setFiltered] = useState(false);
+    const [firstHero, setFirstHero] = useState(null);
+    const [secondHero, setSecondHero] = useState(null);
+    const [open, setOpen] = useState(false);
+
     
 
     useEffect(() => {
@@ -27,13 +31,30 @@ function HeroProvider({ children }) {
         } else setFiltered(false);
       };
 
+      const handleclick= ( hero) => {
+        console.log('hero ',hero);
+        if(firstHero === null){
+            setFirstHero(hero);
+        } 
+        if(firstHero !== null && secondHero === null){
+            setSecondHero(hero);
+        } 
+      };
+
     
 
       const context = {
         data,
         heroFilter,
         filtered,
-        handleFilter
+        firstHero,
+        secondHero,
+        open,
+        setOpen,
+        setFirstHero,
+        setSecondHero,
+        handleFilter,
+        handleclick
       }
 
     return (

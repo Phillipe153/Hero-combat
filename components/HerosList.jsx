@@ -6,8 +6,9 @@ import Grid from '@mui/material/Grid';
 import { useContext, useState, useEffect } from 'react';
 import HeroContext from '../context/HeroContext';
 
+
 function HeroList() {
-const {data, heroFilter, filtered } = useContext(HeroContext)
+const {data, heroFilter, filtered,handleclick, firstHero,secondHero } = useContext(HeroContext)
 const [listFiltered, setListFiltered] = useState({});
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -20,15 +21,17 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 useEffect(() => {
-  console.log(heroFilter);
+  console.log('firstHero ',firstHero);
+  console.log('secondHero ',secondHero);
+ 
+
   setListFiltered(
     data.filter((hero) => {
       return  hero.name.toUpperCase().includes(heroFilter)
     })
   )
   
-}, [data, heroFilter]);
-console.log(listFiltered);
+}, [data, heroFilter, firstHero, secondHero]);
 
     return (
             <Box sx={{ flexGrow: 1 }}>
@@ -37,23 +40,23 @@ console.log(listFiltered);
                 filtered ? 
                 listFiltered.map((hero) => (
                   <Grid item xs={2} sm={2} md={3} key={hero.slug}>
-                    <Item id='hero_item'>
-                        <div key={ hero.name }>
-                            <img src={`${hero.images.sm}`} />             
-                            <div>{hero.name}</div> 
-                        </div>
-                    </Item>
+                    <lablel onClick={handleclick.bind(null,hero) } key={ hero.name } >
+                      <Item  id='hero_item'>
+                        <img  src={`${hero.images.sm}`} />             
+                        <div>{hero.name}</div> 
+                     </Item>
+                    </lablel>
                   </Grid>
                 ))
                 :
                 data.map((hero) => (
-                  <Grid item xs={2} sm={2} md={3} key={hero.slug}>
-                    <Item id='hero_item'>
-                        <div key={ hero.name }>
-                            <img src={`${hero.images.sm}`} />             
-                            <div>{hero.name}</div> 
-                        </div>
-                    </Item>
+                  <Grid   item xs={2} sm={2} md={3} key={hero.slug}>
+                    <lablel onClick={handleclick.bind(null,hero) } key={ hero.name } >
+                      <Item  id='hero_item'>
+                        <img  src={`${hero.images.sm}`} />             
+                        <div>{hero.name}</div> 
+                     </Item>
+                    </lablel>
                   </Grid>
                 ))}
               </Grid>
