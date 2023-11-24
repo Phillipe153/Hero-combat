@@ -94,3 +94,41 @@ button:focus-visible {
 #hero_item  img{
   width: 100%;
 }
+
+.stats{
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.stats img{
+  width: 10%;
+}
+
+.BoxStats{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+ .stastValue{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: flex-end; */
+ }
+
+ .stastValue img{
+  margin: 0px 10px;
+ }
+
+ #setaSecondHero{
+  display: flex;
+  justify-content: flex-end;
+ }
+
+ #setaFirstHero{
+  display: flex;
+  justify-content: flex-start;
+ }
