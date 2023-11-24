@@ -1,10 +1,14 @@
 import {useContext} from 'react';
 import Box from '@mui/material/Box';
 // import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
+// import { green } from '@mui/material/colors';
 import Modal from '@mui/material/Modal';
 import HeroContext from "../context/HeroContext";
-import { green } from '@mui/material/colors';
+import ArrowBackSharpIcon from '@mui/icons-material/ArrowBackSharp';
+import ArrowForwardSharpIcon from '@mui/icons-material/ArrowForwardSharp';
+import RemoveSharpIcon from '@mui/icons-material/RemoveSharp';
+
 
 
 
@@ -22,7 +26,6 @@ const style = {
   p: 12,
 };
 export default function ModalCombatResult() {
-  const color = green[500];
 const {firstHero, secondHero,open, setOpen,setFirstHero,setSecondHero} = useContext(HeroContext)
   const handleClose = () => {
     setFirstHero(null);
@@ -39,8 +42,6 @@ const {firstHero, secondHero,open, setOpen,setFirstHero,setSecondHero} = useCont
 
   const winner = fisrtHeroScore > secondHeroScore ? firstHero.name : secondHero.name;
   
-  console.log(powerStats);
-
   return (
     <div>
       <Modal
@@ -64,9 +65,12 @@ const {firstHero, secondHero,open, setOpen,setFirstHero,setSecondHero} = useCont
                   {firstHero.powerstats[stats]}
                   <div id='setaFirstHero'>
                     {
-                      firstHero.powerstats[stats] > secondHero.powerstats[stats] 
-                      ? <img src='../seta_verde_para_esquerda.png'/> 
-                      : <img src='../seta_vermelha_para_direita.png'/>
+                      firstHero.powerstats[stats] === secondHero.powerstats[stats]
+                      ?
+                      <RemoveSharpIcon className='setaVerde' />  
+                      : firstHero.powerstats[stats] > secondHero.powerstats[stats] 
+                      ? <ArrowBackSharpIcon className='setaVerde' /> 
+                      : <ArrowForwardSharpIcon className='setaVermelha' />
                     }
                   </div>
                 </div>
@@ -74,9 +78,12 @@ const {firstHero, secondHero,open, setOpen,setFirstHero,setSecondHero} = useCont
                  <div className='stastValue'>
                   <div id='setaSecondHero'>
                     {
-                      firstHero.powerstats[stats] > secondHero.powerstats[stats] 
-                      ? <img src='../seta_vermelha_para_esquerda.png'/> 
-                      : <img src='../seta_verde_para_direita.png'/>
+                      firstHero.powerstats[stats] === secondHero.powerstats[stats]
+                      ?
+                      <RemoveSharpIcon className='setaVerde' />
+                      : firstHero.powerstats[stats] > secondHero.powerstats[stats] 
+                      ? <ArrowBackSharpIcon className='setaVermelha' />
+                      : <ArrowForwardSharpIcon className='setaVerde' />
                     }
                   </div>
                     {secondHero.powerstats[stats]}

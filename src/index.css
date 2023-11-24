@@ -58,6 +58,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
+    
     color: #213547;
     background-color: #ffffff;
   }
@@ -69,17 +70,27 @@ button:focus-visible {
   }
 }
 
-.teste{
+.boxButtom{
+  
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
+}
+#outsideBox{
+  width:100%;
 }
 
+
+#insideBox{
+  width: 900px
+}
 #hero_item{
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   margin: 10px;
+  overflow-x: auto;
 }
 
 #hero_item:hover{
@@ -88,11 +99,13 @@ button:focus-visible {
   border-radius: 10px;
   width: 80%;
   margin: 10px;
+
 }
 
 
 #hero_item  img{
   width: 100%;
+ 
 }
 
 .stats{
@@ -116,7 +129,6 @@ button:focus-visible {
  .stastValue{
   display: flex;
   flex-direction: row;
-  /* justify-content: flex-end; */
  }
 
  .stastValue img{
@@ -131,4 +143,32 @@ button:focus-visible {
  #setaFirstHero{
   display: flex;
   justify-content: flex-start;
+ }
+
+ #figthButton{
+  display: flex;
+  background-color: #213547;
+  color: #fff;
+  border: solid 1px #1a1a1a;
+  border-radius: 10px;
+  width: 90%;
+  height: 43px;
+  margin: 10px;
+ }
+
+ .setaVermelha{
+  color: red;
+ }
+ .setaVerde{
+  color: green;
+ }
+
+ #combatants{
+  /* display: flex; */
+  width: 5%;
+  background-color: #222121;
+ }
+ #combatants img{
+  /* display: flex; */
+  width: 5%;
  }

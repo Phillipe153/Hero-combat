@@ -1,18 +1,16 @@
-// import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
+// import * as React from 'react';
 // import AppBar from '@mui/material/AppBar';
 // import Toolbar from '@mui/material/Toolbar';
+// import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { useContext } from 'react';
 import HeroContext from '../context/HeroContext';
 
-
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
-  // borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
@@ -46,7 +44,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: '#ffffff',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -64,29 +61,17 @@ const {handleFilter} = useContext(HeroContext);
 
   return (
     <Box sx={{ flexGrow: 1 }} >
-      {/* <AppBar position="static" > */}
-        {/* <Toolbar   > */}
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 1 }}
-          >
-            {/* <MenuIcon /> */}
-          </IconButton>
           <Search >
             <SearchIconWrapper >
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
+              id='searchBar'
               onChange={ handleFilter }
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-        {/* </Toolbar> */}
-      {/* </AppBar> */}
     </Box>
   );
 }

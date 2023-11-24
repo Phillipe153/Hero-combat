@@ -6,9 +6,7 @@ import propTypes from 'prop-types';
 
 function HeroProvider({ children }) {
     const [data, setData] = useState([]);
-    const [heroFilter, setHeroFilter] = useState({
-        heroFilter: '',
-      });
+    const [heroFilter, setHeroFilter] = useState('');
     const [filtered, setFiltered] = useState(false);
     const [firstHero, setFirstHero] = useState(null);
     const [secondHero, setSecondHero] = useState(null);
@@ -31,12 +29,13 @@ function HeroProvider({ children }) {
         } else setFiltered(false);
       };
 
-      const handleclick= ( hero) => {
-        console.log('hero ',hero);
+      const handleclickSelectHero= ( hero) => {
+        document.getElementById('searchBar').value = '';
+        setHeroFilter('')
         if(firstHero === null){
             setFirstHero(hero);
         } 
-        if(firstHero !== null && secondHero === null){
+        if(firstHero !== null && secondHero === null && hero.name !== firstHero.name){
             setSecondHero(hero);
         } 
       };
@@ -50,11 +49,12 @@ function HeroProvider({ children }) {
         firstHero,
         secondHero,
         open,
+        setHeroFilter,
         setOpen,
         setFirstHero,
         setSecondHero,
         handleFilter,
-        handleclick
+        handleclickSelectHero
       }
 
     return (
